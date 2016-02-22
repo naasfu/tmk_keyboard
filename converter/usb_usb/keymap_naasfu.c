@@ -65,21 +65,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TRNS,TRNS,TRNS,TRNS,TRNS,SPC, PGDN,GRV, FN8, TRNS,APP,           TRNS,          UP,           P1,  P2,  P3,
     TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS,     LEFT,DOWN,RGHT,    P0,       PDOT,PENT
     ),
-    
+
     /*
-     * HHKB
-     */
-    KEYMAP(
-    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS,TRNS,TRNS,
-    NO,  F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL,      TRNS,TRNS,TRNS,    TRNS,TRNS,TRNS,TRNS,
-    CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,UP,  NO,  INS,      TRNS,TRNS,TRNS,    TRNS,TRNS,TRNS,
-    TRNS,VOLD,VOLU,MUTE,NO,  NO,  PAST,PSLS,HOME,PGUP,LEFT,RGHT,     TRNS,                        TRNS,TRNS,TRNS,TRNS,
-    TRNS,NO,  NO,  NO,  NO,  NO,  PPLS,PMNS,END, PGDN,DOWN,          TRNS,          TRNS,         TRNS,TRNS,TRNS,
-    TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,NO,  TRNS,     TRNS,TRNS,TRNS,    TRNS,     TRNS,TRNS
-    ),
-    
-    /*
-     * Gamer Layout (njbair)
+     * 2: Gamer Layout (njbair)
      *
      * A winkeyless QWERTY layout with tap layers disabled
      */
@@ -91,9 +79,25 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT,          UP,           P1,  P2,  P3,
     LCTL,NO,  LALT,          SPC,                     RALT,NO,  FN0, RCTL,     LEFT,DOWN,RGHT,    P0,       PDOT,PENT
     ),
-    
+
     /*
-     * Default layout switching layer
+     * 3: HHKB
+     *
+     * NOTE:  Order of layers is important!  For this HHKB layer to be used on top of other
+     *        layers like the Gaming layer, this layer must come afterwards in this layer
+     *        definitions array.
+     */
+    KEYMAP(
+    TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS,TRNS,TRNS,
+    NO,  F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL,      TRNS,TRNS,TRNS,    TRNS,TRNS,TRNS,TRNS,
+    CAPS,NO,  NO,  NO,  NO,  NO,  NO,  NO,  PSCR,SLCK,PAUS,UP,  NO,  INS,      TRNS,TRNS,TRNS,    TRNS,TRNS,TRNS,
+    TRNS,VOLD,VOLU,MUTE,NO,  NO,  PAST,PSLS,HOME,PGUP,LEFT,RGHT,     TRNS,                        TRNS,TRNS,TRNS,TRNS,
+    TRNS,NO,  NO,  NO,  NO,  NO,  PPLS,PMNS,END, PGDN,DOWN,          TRNS,          TRNS,         TRNS,TRNS,TRNS,
+    TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,TRNS,    TRNS,     TRNS,TRNS
+    ),
+
+    /*
+     * 4: Default layout switching layer
      *
      * Q -> QWERTY
      * G -> Gaming
@@ -104,7 +108,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            NO,  NO,  NO,
     NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       NO,  NO,  NO,      NO,  NO,  NO,  NO,
     TRNS,FN4, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       NO,  NO,  NO,      NO,  NO,  NO,
-    NO,  NO,  FN5, NO,  NO,  FN7, NO,  NO,  NO,  NO,  NO,  NO,       NO,                          NO,  NO,  NO,  NO,
+    NO,  NO,  FN5, NO,  NO,  FN7, FN6, NO,  NO,  NO,  NO,  NO,       NO,                          NO,  NO,  NO,  NO,
     NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            NO,            NO,           NO,  NO,  NO,
     NO,  NO,  NO,            NO,                      NO,  NO,  TRNS,NO,       NO,  NO,  NO,      NO,       NO,  NO
     ),
@@ -114,11 +118,10 @@ const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(4),            // Layout selection layer
     [1] = ACTION_LAYER_TAP_KEY(4, KC_TAB),      // Layout selection layer - tap key tab
     [2] = ACTION_LAYER_TAP_KEY(1, KC_SPC),      // SpaceFN - tap key space
-    [3] = ACTION_LAYER_TAP_KEY(2, KC_ENT),      // HHKB - tap key enter
+    [3] = ACTION_LAYER_TAP_KEY(3, KC_ENT),      // HHKB - tap key enter
     [4] = ACTION_DEFAULT_LAYER_SET(0),          // QWERTY base layout
     [5] = ACTION_DEFAULT_LAYER_SET(1),          // SpaceFN
-    [6] = ACTION_DEFAULT_LAYER_SET(2),          // HHKB layout
-    [7] = ACTION_DEFAULT_LAYER_SET(3),          // Gamer layout
+    [6] = ACTION_DEFAULT_LAYER_SET(3),          // HHKB layout
+    [7] = ACTION_DEFAULT_LAYER_SET(2),          // Gamer layout
     [8] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV),    // tilde (for SpaceFN)
 };
-
