@@ -36,7 +36,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * LCTL <-> CAPS
      */
     KEYMAP(
-    ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,SLCK,BRK,
+    ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,SLCK,MUTE,
     GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,     INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
     FN1, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS,     DEL, END, PGDN,    P7,  P8,  P9,
     LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     FN3,                         P4,  P5,  P6,  PPLS,
@@ -58,7 +58,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------'
      */
     KEYMAP(
-    ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,SLCK,BRK,
+    ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,SLCK,MUTE,
     GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, DEL,      INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
     FN1, TRNS,TRNS,ESC, TRNS,TRNS,TRNS,HOME,UP,  END, PSCR,SLCK,PAUS,INS,      DEL, END, PGDN,    P7,  P8,  P9,
     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,TRNS,TRNS,     TRNS,                        P4,  P5,  P6,  PPLS,
@@ -79,12 +79,26 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     
     /*
+     * Gamer Layout (njbair) with Left Ctrl <-> Caps swapped
+     *
+     * A winkeyless QWERTY layout with tap layers disabled
+     */
+    KEYMAP(
+    ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,SLCK,MUTE,
+    GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,     INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
+    FN1, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS,     DEL, END, PGDN,    P7,  P8,  P9,
+    LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,                         P4,  P5,  P6,  PPLS,
+    LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT,          UP,           P1,  P2,  P3,
+    CAPS,NO,  LALT,          SPC,                     RALT,NO,  FN0, RCTL,     LEFT,DOWN,RGHT,    P0,       PDOT,PENT
+    ),
+    
+    /*
      * Gamer Layout (njbair)
      *
      * A winkeyless QWERTY layout with tap layers disabled
      */
     KEYMAP(
-    ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,SLCK,BRK,
+    ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,           PSCR,SLCK,MUTE,
     GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC,     INS, HOME,PGUP,    NLCK,PSLS,PAST,PMNS,
     FN1, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS,     DEL, END, PGDN,    P7,  P8,  P9,
     CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,                         P4,  P5,  P6,  PPLS,
@@ -104,21 +118,22 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            NO,  NO,  NO,
     NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       NO,  NO,  NO,      NO,  NO,  NO,  NO,
     TRNS,FN4, NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,       NO,  NO,  NO,      NO,  NO,  NO,
-    NO,  NO,  FN5, NO,  NO,  FN7, NO,  NO,  NO,  NO,  NO,  NO,       NO,                          NO,  NO,  NO,  NO,
+    NO,  NO,  FN5, NO,  NO,  FN7, FN8, NO,  NO,  NO,  NO,  NO,       NO,                          NO,  NO,  NO,  NO,
     NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,            NO,            NO,           NO,  NO,  NO,
     NO,  NO,  NO,            NO,                      NO,  NO,  TRNS,NO,       NO,  NO,  NO,      NO,       NO,  NO
     ),
 };
 
 const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_MOMENTARY(4),            // Layout selection layer
-    [1] = ACTION_LAYER_TAP_KEY(4, KC_TAB),      // Layout selection layer - tap key tab
+    [0] = ACTION_LAYER_MOMENTARY(5),            // Layout selection layer
+    [1] = ACTION_LAYER_TAP_KEY(5, KC_TAB),      // Layout selection layer - tap key tab
     [2] = ACTION_LAYER_TAP_KEY(1, KC_SPC),      // SpaceFN - tap key space
     [3] = ACTION_LAYER_TAP_KEY(2, KC_ENT),      // HHKB - tap key enter
     [4] = ACTION_DEFAULT_LAYER_SET(0),          // QWERTY base layout
     [5] = ACTION_DEFAULT_LAYER_SET(1),          // SpaceFN
     [6] = ACTION_DEFAULT_LAYER_SET(2),          // HHKB layout
-    [7] = ACTION_DEFAULT_LAYER_SET(3),          // Gamer layout
-    [8] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV),    // tilde (for SpaceFN)
+    [7] = ACTION_DEFAULT_LAYER_SET(3),          // Gamer layout with LCtrl <-> Caps swapped
+    [8] = ACTION_DEFAULT_LAYER_SET(4),          // Gamer layout
+    [9] = ACTION_MODS_KEY(MOD_LSFT, KC_GRV),    // tilde (for SpaceFN)
 };
 
